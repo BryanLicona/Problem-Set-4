@@ -1,0 +1,9 @@
+
+import emoji
+
+prompt = input("Input: ")
+#in github it is "convert = emoji.emojize(prompt, language = 'alias')"
+convert = emoji.emojize(prompt, 'alias' == True)
+print("Output: ", convert)
+
+
