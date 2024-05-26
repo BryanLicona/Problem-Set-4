@@ -1,0 +1,63 @@
+# Create a program that promots user for names
+# One name per line
+# Continue (loop) until the user inputs control -d to exit
+# Assume the user will input at least one name
+# Output should bid 'adieu' to each name provided by user
+# Separating two names with one 'and'
+# Separating three names with two commas and one 'and'
+# and n names with n-1 commas and one 'and' as the examples provided:
+    #Adieu, adieu, to Liesl
+    #Adieu, adieu, to Liesl and Friedrich
+    #Adieu, adieu, to Liesl, Friedrich, and Louisa
+    #Adieu, adieu, to Liesl, Friedrich, Louisa, and Kurt
+    #Adieu, adieu, to Liesl, Friedrich, Louisa, Kurt, and Brigitta
+    #Adieu, adieu, to Liesl, Friedrich, Louisa, Kurt, Brigitta, and Marta
+    #Adieu, adieu, to Liesl, Friedrich, Louisa, Kurt, Brigitta, Marta, and Gretl
+
+import inflect
+
+p = inflect.engine()
+text = ["Adieu", "adieu"]
+while True:
+    try:
+        x = input("Name: ")
+    except EOFError:
+        print()
+        break
+    text.append(x)
+text[2] = "to " + text[2]
+
+if len(text) == 3:
+    new_text = p.join(text, conj='')
+elif len(text) == 4:
+    new_text = p.join(text, final_sep='')
+else:
+    new_text = p.join(text)
+
+print(new_text)
+
+
+
+############################################################ Also another option
+
+import inflect
+
+#p = inflect.engine()
+#list = (input("Enter name: ")).split(",")
+#print("Adieu, adieu, to " + p.join(list))
+
+#list = input("Enter name: ").split()
+#print("List:", list)
+
+
+p = inflect.engine()
+try:
+    p = inflect.engine()
+    list = []
+    while True:
+        x = str(input("Name: "))
+        p.join(list.append(x))
+except:
+    EOFError
+    
+print("Adieu, adieu, to",p.join(list))
